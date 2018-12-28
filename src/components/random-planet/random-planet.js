@@ -26,11 +26,16 @@ export default class RandomPlanet extends Component {
     });
   };
 
+ onError = (err) => {
+
+ }
+
   updatePlanet() {
     const id = 12;
     this.swapiService
       .getPlanet(id)
       .then(this.onPlanetLoaded);
+      .catch(this.onError)
   }
 
   render() {
@@ -76,6 +81,3 @@ const PlanetView = ({ planet }) => {
     </React.Fragment>
   );
 };
-
-
-
